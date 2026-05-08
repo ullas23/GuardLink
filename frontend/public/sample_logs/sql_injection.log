@@ -1,0 +1,11 @@
+2024-01-15T09:15:20Z [INFO] Web application started on example.com
+2024-01-15T09:15:45Z [WARN] Suspicious request: GET /user?id=1' OR '1'='1 from 198.51.100.23
+2024-01-15T09:16:02Z [WARN] Suspicious request: GET /login?username=admin'--&password=anything from 198.51.100.23
+2024-01-15T09:16:18Z [WARN] Suspicious request: POST /search query='; DROP TABLE users;-- from 198.51.100.23
+2024-01-15T09:16:35Z [WARN] Suspicious request: GET /product?id=1 UNION SELECT username,password FROM users-- from 198.51.100.23
+2024-01-15T09:16:52Z [WARN] Suspicious request: POST /login username=admin' OR 1=1--&password=test from 198.51.100.23
+2024-01-15T09:17:09Z [WARN] Suspicious request: GET /article?id=1'; SELECT * FROM credit_cards;-- from 198.51.100.23
+2024-01-15T09:17:26Z [WARN] Suspicious request: POST /comment text=test'; INSERT INTO admin (username,password) VALUES ('hacker','pass');-- from 198.51.100.23
+2024-01-15T09:17:43Z [ERROR] SQL injection attack detected from 198.51.100.23
+2024-01-15T09:17:44Z [ERROR] Database error: syntax error near OR statement
+2024-01-15T09:17:45Z [ERROR] Multiple SQL injection patterns detected

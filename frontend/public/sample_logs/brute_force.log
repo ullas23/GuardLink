@@ -1,0 +1,19 @@
+2024-01-15T14:20:30Z [INFO] SSH service started on server 10.0.0.5
+2024-01-15T14:21:05Z [WARN] Failed login attempt for user: admin from 185.220.101.182
+2024-01-15T14:21:08Z [WARN] Failed login attempt for user: admin from 185.220.101.182
+2024-01-15T14:21:11Z [WARN] Failed login attempt for user: admin from 185.220.101.182
+2024-01-15T14:21:15Z [WARN] Failed login attempt for user: root from 185.220.101.182
+2024-01-15T14:21:18Z [WARN] Failed login attempt for user: root from 185.220.101.182
+2024-01-15T14:21:22Z [WARN] Failed login attempt for user: root from 185.220.101.182
+2024-01-15T14:21:26Z [WARN] Failed login attempt for user: ubuntu from 185.220.101.182
+2024-01-15T14:21:30Z [WARN] Failed login attempt for user: ubuntu from 185.220.101.182
+2024-01-15T14:21:34Z [WARN] Failed login attempt for user: test from 185.220.101.182
+2024-01-15T14:21:38Z [WARN] Failed login attempt for user: test from 185.220.101.182
+2024-01-15T14:21:42Z [WARN] Failed login attempt for user: guest from 185.220.101.182
+2024-01-15T14:21:46Z [WARN] Failed login attempt for user: guest from 185.220.101.182
+2024-01-15T14:21:50Z [WARN] Failed login attempt for user: user from 185.220.101.182
+2024-01-15T14:21:54Z [WARN] Failed login attempt for user: user from 185.220.101.182
+2024-01-15T14:21:58Z [WARN] Failed login attempt for user: ftp from 185.220.101.182
+2024-01-15T14:22:02Z [WARN] Failed login attempt for user: ftp from 185.220.101.182
+2024-01-15T14:22:06Z [WARN] Failed login attempt for user: mail from 185.220.101.182
+2024-01-15T14:22:10Z [ERROR] Brute force attack detected from 185.220.101.182 - 15 failed attempts

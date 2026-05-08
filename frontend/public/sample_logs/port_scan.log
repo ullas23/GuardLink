@@ -1,0 +1,16 @@
+2024-01-15T10:30:15Z [INFO] Starting network monitoring
+2024-01-15T10:30:45Z [WARN] Connection attempt from 192.168.1.100 to port 22
+2024-01-15T10:31:02Z [WARN] Connection attempt from 192.168.1.100 to port 23
+2024-01-15T10:31:18Z [WARN] Connection attempt from 192.168.1.100 to port 80
+2024-01-15T10:31:35Z [WARN] Connection attempt from 192.168.1.100 to port 443
+2024-01-15T10:31:52Z [WARN] Connection attempt from 192.168.1.100 to port 3389
+2024-01-15T10:32:09Z [WARN] Connection attempt from 192.168.1.100 to port 5432
+2024-01-15T10:32:26Z [WARN] Connection attempt from 192.168.1.100 to port 3306
+2024-01-15T10:32:43Z [WARN] Connection attempt from 192.168.1.100 to port 1433
+2024-01-15T10:33:00Z [WARN] Connection attempt from 192.168.1.100 to port 21
+2024-01-15T10:33:17Z [WARN] Connection attempt from 192.168.1.100 to port 25
+2024-01-15T10:33:34Z [WARN] Connection attempt from 192.168.1.100 to port 53
+2024-01-15T10:33:51Z [WARN] Connection attempt from 192.168.1.100 to port 135
+2024-01-15T10:34:08Z [WARN] Connection attempt from 192.168.1.100 to port 139
+2024-01-15T10:34:25Z [WARN] Connection attempt from 192.168.1.100 to port 445
+2024-01-15T10:34:42Z [ERROR] Multiple connection attempts detected from 192.168.1.100 - possible port scan

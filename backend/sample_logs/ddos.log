@@ -1,0 +1,20 @@
+2024-01-15T16:45:10Z [INFO] Web server started on 10.0.0.10:80
+2024-01-15T16:45:30Z [WARN] High traffic detected from 203.0.113.1
+2024-01-15T16:45:31Z [WARN] High traffic detected from 203.0.113.2
+2024-01-15T16:45:32Z [WARN] High traffic detected from 203.0.113.3
+2024-01-15T16:45:33Z [WARN] High traffic detected from 203.0.113.4
+2024-01-15T16:45:34Z [WARN] High traffic detected from 203.0.113.5
+2024-01-15T16:45:35Z [WARN] High traffic detected from 203.0.113.6
+2024-01-15T16:45:36Z [WARN] High traffic detected from 203.0.113.7
+2024-01-15T16:45:37Z [WARN] High traffic detected from 203.0.113.8
+2024-01-15T16:45:38Z [WARN] High traffic detected from 203.0.113.9
+2024-01-15T16:45:39Z [WARN] High traffic detected from 203.0.113.10
+2024-01-15T16:45:40Z [WARN] High traffic detected from 203.0.113.11
+2024-01-15T16:45:41Z [WARN] High traffic detected from 203.0.113.12
+2024-01-15T16:45:42Z [WARN] High traffic detected from 203.0.113.13
+2024-01-15T16:45:43Z [WARN] High traffic detected from 203.0.113.14
+2024-01-15T16:45:44Z [WARN] High traffic detected from 203.0.113.15
+2024-01-15T16:45:45Z [ERROR] DDoS attack detected - server overwhelmed with requests
+2024-01-15T16:45:46Z [ERROR] Response time increased to 5000ms
+2024-01-15T16:45:47Z [ERROR] CPU usage at 95%
+2024-01-15T16:45:48Z [ERROR] Memory usage at 87%
