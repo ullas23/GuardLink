@@ -52,3 +52,4 @@ backend/latest_report.json
 # Temporary files
 *.tmp
 *.temp
+backend/.env
