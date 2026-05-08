@@ -5,8 +5,11 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
   if (analysis) {
     console.log("Analysis Result:", analysis);
     console.log("Confidence Score:", analysis.confidence_score);
-    console.log("Attack Category:", analysis.attack_category);
+    console.log("Attack Family:", analysis.attack_family);
+    console.log("Attack Type:", analysis.attack_type);
     console.log("Severity:", analysis.severity);
+    console.log("Verdict:", analysis.verdict);
+    console.log("Model Provider:", analysis.model_provider);
   }
   
   const getSeverityColor = (severity) => {
@@ -90,7 +93,7 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
             Confidence: {analysis.confidence_score || 0}%
           </span>
           <span style={{ fontSize: '14px', color: '#666' }}>
-            Engine: GEMINI
+            Engine: {analysis.model_provider || 'GEMINI'}
           </span>
         </div>
       </div>
@@ -99,7 +102,7 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
       <div className="glass-card fade-in" style={{ padding: '24px', marginBottom: '24px' }}>
         <h3 style={{ marginBottom: '16px', color: '#333' }}>Executive Summary</h3>
         <p style={{ lineHeight: '1.6', color: '#666' }}>
-          {analysis.analysis || 'No analysis available'}
+          {analysis.summary || 'No analysis available'}
         </p>
       </div>
 
@@ -110,24 +113,43 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
           <div>
             <h4 style={{ fontSize: '14px', fontWeight: '600', color: '#666', marginBottom: '8px' }}>
-              Attack Category
+              Attack Family
             </h4>
             <p style={{ fontSize: '16px', color: '#333' }}>
-              {analysis.attack_category || 'Not identified'}
+              {analysis.attack_family || 'Not identified'}
             </p>
           </div>
-          
-          {analysis.mitre_techniques && analysis.mitre_techniques.length > 0 && (
+
+          <div>
+            <h4 style={{ fontSize: '14px', fontWeight: '600', color: '#666', marginBottom: '8px' }}>
+              Attack Type
+            </h4>
+            <p style={{ fontSize: '16px', color: '#333' }}>
+              {analysis.attack_type || 'Not identified'}
+            </p>
+          </div>
+
+          {analysis.mitre_mapping && (analysis.mitre_mapping.technique || analysis.mitre_mapping.technique_id) && (
             <div>
               <h4 style={{ fontSize: '14px', fontWeight: '600', color: '#666', marginBottom: '8px' }}>
-                MITRE Techniques
+                MITRE Technique
               </h4>
               <div style={{ fontSize: '14px', color: '#333', lineHeight: '1.4' }}>
-                {analysis.mitre_techniques.map((technique, index) => (
-                  <div key={index} style={{ marginBottom: '4px' }}>
-                    <strong>{technique}</strong>
+                {analysis.mitre_mapping.technique_id && (
+                  <div style={{ marginBottom: '4px' }}>
+                    <strong>{analysis.mitre_mapping.technique_id}</strong>
                   </div>
-                ))}
+                )}
+                {analysis.mitre_mapping.technique && (
+                  <div style={{ marginBottom: '4px' }}>
+                    {analysis.mitre_mapping.technique}
+                  </div>
+                )}
+                {analysis.mitre_mapping.tactic && (
+                  <div style={{ fontSize: '12px', color: '#666' }}>
+                    Tactic: {analysis.mitre_mapping.tactic}
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -135,11 +157,11 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
       </div>
 
       {/* Recommendations */}
-      {analysis.recommendations && analysis.recommendations.length > 0 && (
+      {analysis.soc_recommendations && analysis.soc_recommendations.length > 0 && (
         <div className="glass-card fade-in" style={{ padding: '24px', marginBottom: '24px' }}>
           <h3 style={{ marginBottom: '16px', color: '#333' }}>Security Recommendations</h3>
           <ol style={{ margin: 0, paddingLeft: '20px' }}>
-            {analysis.recommendations.map((recommendation, index) => (
+            {analysis.soc_recommendations.map((recommendation, index) => (
               <li key={index} style={{ marginBottom: '8px', color: '#666', lineHeight: '1.5' }}>
                 {recommendation}
               </li>
@@ -149,10 +171,10 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
       )}
 
       {/* Indicators */}
-      {analysis.indicators && (
+      {analysis.suspicious_indicators && (
         <div className="glass-card fade-in" style={{ padding: '24px', marginBottom: '24px' }}>
           <h3 style={{ marginBottom: '16px', color: '#333' }}>Extracted Indicators</h3>
-          {renderIndicators(analysis.indicators)}
+          {renderIndicators(analysis.suspicious_indicators)}
         </div>
       )}
 
@@ -161,7 +183,7 @@ const ResultsDashboard = ({ analysis, onNewAnalysis }) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <span>Analysis Time: {formatTimestamp(analysis.analysis_timestamp)}</span>
           <span>Lines Processed: {analysis.log_lines_processed || 'N/A'}</span>
-          <span>Engine: GEMINI</span>
+          <span>Engine: {analysis.model_provider || 'GEMINI'}</span>
         </div>
       </div>
     </div>

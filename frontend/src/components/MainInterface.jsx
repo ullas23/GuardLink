@@ -24,14 +24,7 @@ const MainInterface = () => {
     }
 
     // Load latest report from backend
-    loadLatestReport().catch(error => {
-      console.error('Failed to load latest report on mount:', error);
-    setMessage({
-        type: 'error',
-        text: 'Failed to load latest analysis report'
-      });
-    setTimeout(() => setMessage(null), 3000);
-  });
+    loadLatestReport();
   }, []);
 
   // Save history to localStorage whenever it changes

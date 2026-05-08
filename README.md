@@ -52,10 +52,10 @@ cp .env.example .env
 # Edit .env and add your GEMINI_API_KEY
 
 # Start the backend server
-python main.py
+uvicorn main:app --reload --port 8001
 ```
 
-The backend will start on `http://localhost:8000`
+The backend will start on `http://localhost:8001`
 
 #### 2. Frontend Setup
 
@@ -70,11 +70,11 @@ npm install
 npm run dev
 ```
 
-The frontend will start on `http://localhost:5173`
+The frontend will start on `http://localhost:5173` (or another available port)
 
 #### 3. Access GuardLink
 
-Open your browser and navigate to `http://localhost:5173`
+Open your browser and navigate to the frontend URL shown in the terminal (typically `http://localhost:5173`)
 
 ## Usage
 
@@ -186,13 +186,77 @@ npm run build
 
 1. **Gemini API Key Error**: Ensure your API key is correctly set in `.env`
 2. **Import Errors**: Make sure all dependencies are installed with `pip install -r requirements.txt`
-3. **Port Conflicts**: Change the port in `main.py` if 8000 is in use
+3. **Port Conflicts**: Change the port in the uvicorn command if 8001 is in use
 
 ### Frontend Issues
 
-1. **Backend Connection**: Ensure backend is running on `http://localhost:8000`
-2. **CORS Errors**: The backend is configured for `localhost:5173` - adjust if needed
+1. **Backend Connection**: Ensure backend is running on `http://localhost:8001`
+2. **CORS Errors**: The backend is configured for multiple frontend ports (5173, 5174, 5175) - adjust if needed
 3. **Build Errors**: Clear node_modules and reinstall dependencies
+
+## Project Recovery (Full Rebuild Instructions)
+
+If cloning this repository fresh or recovering after deletion:
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd guardlink
+```
+
+### 2. Backend Setup
+
+```bash
+# Navigate to backend
+cd guardlink/backend
+
+# Create Python virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file from template
+cp .env.example .env
+# Edit .env and add your Gemini API key:
+# GEMINI_API_KEY=your_actual_api_key_here
+```
+
+### 3. Run Backend
+
+```bash
+uvicorn main:app --reload --port 8001
+```
+
+Backend will be available at: http://localhost:8001
+
+### 4. Frontend Setup (New Terminal)
+
+```bash
+# Navigate to frontend
+cd guardlink/frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Frontend will be available at: http://localhost:5173 (or another port if 5173 is in use)
+
+### 5. Verify Installation
+
+1. Open browser to frontend URL
+2. Check backend health: http://localhost:8001
+3. Test analysis with sample logs
 
 ## Security Notes
 
@@ -200,6 +264,7 @@ npm run build
 - No sensitive data is stored in the frontend
 - File uploads are validated for type and size
 - All analysis is performed server-side
+- `.env`, `venv/`, `node_modules/`, and `__pycache__/` are excluded from Git
 
 ## License
 
